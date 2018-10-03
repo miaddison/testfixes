@@ -9,11 +9,13 @@ public class CropRatio {
     public void add(String name, int cropWeight) throws NullPointerException{
         Integer currentCropWeight = crops.get(name);
 
+        // had to move this up so total weight was calculation before total for crop
         totalWeight += cropWeight;
         
+        // if no current value for crop, add it to the hashmap
         if (currentCropWeight == null) {
             crops.put(name, cropWeight);
-        }else{
+        }else{ //if there is a current value, update with combined weight
         	cropWeight += currentCropWeight;
         	crops.replace(name, cropWeight);
         }     
@@ -21,6 +23,7 @@ public class CropRatio {
 
     public double proportion(String name) throws NullPointerException{
         int current=crops.get(name);
+        //Had to cast the integer to get the double for division
         double prop = current/(double)totalWeight;
 
         return prop;
