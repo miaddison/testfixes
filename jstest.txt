@@ -1,0 +1,18 @@
+function setup() {
+  				var btn = document.getElementsByTagName('button');
+  				for(var x = 0; x < btn.length; x++) {
+  					var clickedBtn = btn[x];
+  					btn[x].addEventListener('click', function(){clickedBtn.style.visibility="hidden"
+  						setTimeout(function(){clickedBtn.style.visibility = "visible";},1000);
+  					});
+  				}
+			}
+
+// Example case. 
+document.body.innerHTML = `<button type="button" id="btn">Hide Me!</button>`;
+
+setup();
+
+var button = $("#btn"); 
+button.click();
+console.log(button.is(':visible'));
