@@ -1,12 +1,15 @@
 function setup() {
-  				var btn = document.getElementsByTagName('button');
-  				for(var x = 0; x < btn.length; x++) {
-  					var clickedBtn = btn[x];
-  					btn[x].addEventListener('click', function(){clickedBtn.style.visibility="hidden"
-  						setTimeout(function(){clickedBtn.style.visibility = "visible";},1000);
-  					});
-  				}
-			}
+	var btn = document.getElementsByTagName('button');
+	for(var x = 0; x < btn.length; x++) {
+		var clickedBtn = btn[x]; // put into variable so it can be used in setTimeout without throwing error
+		btn[x].addEventListener('click', function(){
+			clickedBtn.style.visibility="hidden" // change button to hidden
+			setTimeout(function(){ // change button visibility back to visible after 1 second
+				clickedBtn.style.visibility = "visible"; 
+			},1000); // end setTimeout
+  		}); // end eventListener
+  	} // end for loop
+} // end function
 
 // Example case. 
 document.body.innerHTML = `<button type="button" id="btn">Hide Me!</button>`;
